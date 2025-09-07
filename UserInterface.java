@@ -26,20 +26,20 @@ class Account {
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
-            System.out.println("✅ Amount deposited successfully. New Balance: " + balance);
+            System.out.println(" Amount deposited successfully. New Balance: " + balance);
         } else {
-            System.out.println("❌ Deposit amount must be positive!");
+            System.out.println(" Deposit amount must be positive!");
         }
     }
 
     public void withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
-            System.out.println("✅ Amount withdrawn successfully. New Balance: " + balance);
+            System.out.println("Amount withdrawn successfully. New Balance: " + balance);
         } else if (amount > balance) {
-            System.out.println("❌ Insufficient balance!");
+            System.out.println(" Insufficient balance!");
         } else {
-            System.out.println("❌ Withdrawal amount must be positive!");
+            System.out.println(" Withdrawal amount must be positive!");
         }
     }
 
@@ -58,12 +58,12 @@ class Account {
     public void updateContactDetails(String email, String phoneNumber) {
         this.email = email;
         this.phoneNumber = phoneNumber;
-        System.out.println("✅ Contact details updated successfully!");
+        System.out.println("Contact details updated successfully!");
     }
 }
 
 
-public class UserInterface {
+public class BankingSystemm {
     private static Account[] accounts = new Account[100]; 
     private static int accountCount = 0;                  
     private static int accountNumberSeed = 1001;          
@@ -85,7 +85,7 @@ public class UserInterface {
         String phone = sc.nextLine();
 
         accounts[accountCount] = new Account(accountNumberSeed, name, amount, email, phone);
-        System.out.println("🎉 Account created successfully with Account Number: " + accountNumberSeed);
+        System.out.println(" Account created successfully with Account Number: " + accountNumberSeed);
 
         accountNumberSeed++;
         accountCount++;
@@ -112,7 +112,7 @@ public class UserInterface {
         if (acc != null) {
             acc.deposit(amount);
         } else {
-            System.out.println("❌ Account not found!");
+            System.out.println(" Account not found!");
         }
     }
 
@@ -127,7 +127,7 @@ public class UserInterface {
         if (acc != null) {
             acc.withdraw(amount);
         } else {
-            System.out.println("❌ Account not found!");
+            System.out.println(" Account not found!");
         }
     }
 
@@ -139,7 +139,7 @@ public class UserInterface {
         if (acc != null) {
             acc.displayAccountDetails();
         } else {
-            System.out.println("❌ Account not found!");
+            System.out.println(" Account not found!");
         }
     }
 
@@ -157,7 +157,7 @@ public class UserInterface {
         if (acc != null) {
             acc.updateContactDetails(email, phone);
         } else {
-            System.out.println("❌ Account not found!");
+            System.out.println("Account not found!");
         }
     }
 
@@ -182,8 +182,8 @@ public class UserInterface {
                 case 3 -> performWithdrawal();
                 case 4 -> showAccountDetails();
                 case 5 -> updateContact();
-                case 6 -> System.out.println("👋 Exiting... Thank you for using Banking App!");
-                default -> System.out.println("❌ Invalid choice. Please try again!");
+                case 6 -> System.out.println(" Exiting... Thank you for using Banking App!");
+                default -> System.out.println("Invalid choice. Please try again!");
             }
         } while (choice != 6);
     }
